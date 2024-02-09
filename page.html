@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html style="width:350px; height:350px;">
+<head>
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        .place-holder-group {
+            height: 30px;
+            min-width: 90%;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-group label {
+            margin-right: 10px;
+        }
+        
+        .display-field {
+            padding: 2px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            width: 90%;
+            height: 30px;
+            margin: 5px;
+        }
+
+        .button {
+            background-color: #0376c9;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+            width: 145px; 
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Stateless Password Generator</h1>
+    
+    <div class="form-group">
+        <input class="place-holder-group" type="text" placeholder="Domain">
+    </div>
+    
+    <div class="form-group">
+        <input class="place-holder-group" type="text" placeholder="Username">
+    </div>
+    
+    <div class="form-group">
+        <input class="place-holder-group" type="password" placeholder="Master Password">
+    </div>
+    
+    <div class="checkbox-group">
+        <label>
+            <input type="checkbox"> Uppercase
+        </label>
+        <label>
+            <input type="checkbox"> Lowercase
+        </label>
+        <label>
+            <input type="checkbox"> Number
+        </label>
+        <label>
+            <input type="checkbox"> Special Character
+        </label>
+    </div>
+    
+    
+    <button class="button">Generate</button>
+    
+    <div class="display-field"></div>
+    <button class="button">Show</button>
+    <button class="button">Copy</button>
+
+    <script>
+        //TODO
+    </script>
+</body>
+</html>
