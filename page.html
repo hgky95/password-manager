@@ -55,6 +55,11 @@
             border-radius: 25px;
             width: 145px; 
         }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
         
     </style>
 </head>
@@ -62,15 +67,18 @@
     <h1>Stateless Password Generator</h1>
     
     <div class="form-group">
-        <input class="place-holder-group" type="text" placeholder="Domain">
+        <input id="domain" class="place-holder-group" type="text" placeholder="Domain">
+        <div id="domain-error" class="error-message"></div>
     </div>
     
     <div class="form-group">
-        <input class="place-holder-group" type="text" placeholder="Username">
+        <input id="username" class="place-holder-group" type="text" placeholder="Username">
+        <div id="username-error" class="error-message"></div>
     </div>
     
     <div class="form-group">
-        <input class="place-holder-group" type="password" placeholder="Master Password">
+        <input id="masterPassword" class="place-holder-group" type="password" placeholder="Master Password">
+        <div id="masterPassword-error" class="error-message"></div>
     </div>
     
     <div class="checkbox-group">
@@ -89,14 +97,47 @@
     </div>
     
     
-    <button class="button">Generate</button>
+    <button class="button" onclick="validateFields()">Generate</button>
     
     <div class="display-field"></div>
     <button class="button">Show</button>
     <button class="button">Copy</button>
 
     <script>
-        //TODO
+        function validateFields() {
+            const domain = document.getElementById("domain").value;
+            const username = document.getElementById("username").value;
+            const masterPassword = document.getElementById("masterPassword").value;
+
+            const domainError = document.getElementById("domain-error");
+            const usernameError = document.getElementById("username-error");
+            const masterPasswordError = document.getElementById("masterPassword-error");
+
+            domainError.innerText = "";
+            usernameError.innerText = "";
+            masterPasswordError.innerText = "";
+
+            let isValid = true;
+
+            if (!domain.trim()) {
+                domainError.innerText = "Domain is required";
+                isValid = false;
+            }
+
+            if (!username.trim()) {
+                usernameError.innerText = "Username is required";
+                isValid = false;
+            }
+
+            if (!masterPassword.trim()) {
+                masterPasswordError.innerText = "Master Password is required";
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Perform generation logic here if all fields are valid
+            }
+        }
     </script>
 </body>
 </html>
