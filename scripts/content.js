@@ -1,3 +1,5 @@
+document.getElementById("generateBtn").addEventListener("click", validateFields);
+
 function validateFields() {
     const domain = document.getElementById("domain").value;
     const username = document.getElementById("username").value;
