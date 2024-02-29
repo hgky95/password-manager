@@ -103,41 +103,7 @@
     <button class="button">Show</button>
     <button class="button">Copy</button>
 
-    <script>
-        function validateFields() {
-            const domain = document.getElementById("domain").value;
-            const username = document.getElementById("username").value;
-            const masterPassword = document.getElementById("masterPassword").value;
-
-            const domainError = document.getElementById("domain-error");
-            const usernameError = document.getElementById("username-error");
-            const masterPasswordError = document.getElementById("masterPassword-error");
-
-            domainError.innerText = "";
-            usernameError.innerText = "";
-            masterPasswordError.innerText = "";
-
-            let isValid = true;
-
-            if (!domain.trim()) {
-                domainError.innerText = "Domain is required";
-                isValid = false;
-            }
-
-            if (!username.trim()) {
-                usernameError.innerText = "Username is required";
-                isValid = false;
-            }
-
-            if (!masterPassword.trim()) {
-                masterPasswordError.innerText = "Master Password is required";
-                isValid = false;
-            }
-
-            if (isValid) {
-                // Perform generation logic here if all fields are valid
-            }
-        }
-    </script>
+    <script src="scripts/password-generator.js"></script>
+    <script src="scripts/content.js"></script>
 </body>
 </html>

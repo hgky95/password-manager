@@ -1,9 +1,9 @@
 {
-    "name": "Stateless Password Manager",
-    "description": "Chrome extension that allow to generate a password based on user input",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
+  "version": "1.0",
+  "name": "Stateless Password Manager",
+  "description": "Chrome extension that allow to generate a password based on user input",
+  "manifest_version": 3,
+  "action": {
       "default_popup": "page.html",
       "default_icon": "images/icon.png"
     }
