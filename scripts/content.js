@@ -1,6 +1,6 @@
-document.getElementById("generateBtn").addEventListener("click", validateFields);
+document.getElementById("generateBtn").addEventListener("click", generatePassword);
 
-function validateFields() {
+async function generatePassword() {
     const domain = document.getElementById("domain").value;
     const username = document.getElementById("username").value;
     const masterPassword = document.getElementById("masterPassword").value;
@@ -46,6 +46,6 @@ function validateFields() {
     }
 
     if (isValid) {
-        generatePassword(userData);
+        document.getElementById("generatedPassword").innerText = await hashPassword(userData);
     }
 }
