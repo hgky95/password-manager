@@ -1,10 +1,10 @@
 {
   "version": "1.0",
   "name": "Stateless Password Manager",
-  "description": "Chrome extension that allow to generate a password based on user input",
+  "description": "Generate a unique password based on your input. No need to remember every password from now, only the master password is enough. Install now!",
   "manifest_version": 3,
   "action": {
-    "default_popup": "page.html",
+    "default_popup": "main.html",
     "default_icon": "images/icon128.png"
   },
   "icons": {
