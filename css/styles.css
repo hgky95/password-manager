@@ -96,6 +96,19 @@ input::-webkit-inner-spin-button {
 
 .bi.bi-eye-slash {
     margin-left: -25px;
-    margin-top: 6px;
+    margin-top: 9px;
     font-size: 1.5em;
+}
+
+.bi.bi-eye-slash.generatedPassword {
+    margin-left: -48px;
+    margin-right: 20px;
+    margin-top: 14px;
+    font-size: 1.5em;
+}
+
+.bi.bi-copy {
+    margin-left: -14px;
+    margin-top: 14px;
+    font-size: 1.2em;
 }

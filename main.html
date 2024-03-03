@@ -2,7 +2,7 @@
 <html style="width:350px; height:350px;">
 <head>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
     <title>Password Generator</title>
 </head>
 <body>
@@ -53,10 +53,14 @@
 
     
     <button id="generateBtn" class="button">Generate</button>
-    
-    <div id="generatedPassword" class="display-field"></div>
-    <button class="button">Show</button>
-    <button class="button">Copy</button>
+
+
+    <div class="master-password-input">
+        <input id="generatedPassword" class="display-field" type="password" readonly>
+        <i class="bi bi-eye-slash generatedPassword" id="toggleGeneratedPassword"></i>
+        <i class="bi bi-copy" id="copyClipboard"></i>
+    </div>
+
 
     <script src="scripts/password-generator.js"></script>
     <script src="scripts/content.js"></script>

@@ -1,20 +1,30 @@
+const DEFAULT_PASSWORD_LENGTH = 8;
+let maxLengthCounter = DEFAULT_PASSWORD_LENGTH;
+
 document.getElementById("generateBtn").addEventListener("click", generatePassword);
 document.getElementById("maxLengthIncrementBtn").addEventListener("click", increaseMaxLength);
 document.getElementById("maxLengthDecrementBtn").addEventListener("click", decreaseMaxLength);
 document.getElementById("maxLength").addEventListener("input", setMaxLength);
-
-//initialising a variable name data
-const DEFAULT_PASSWORD_LENGTH = 8;
-let maxLengthCounter = DEFAULT_PASSWORD_LENGTH;
 document.getElementById("maxLength").value = maxLengthCounter;
 
 const togglePassword = document.getElementById("togglePassword");
 const password = document.getElementById("masterPassword");
+const generatedPassword = document.getElementById("generatedPassword");
+const toggleGeneratedPassword = document.getElementById("toggleGeneratedPassword");
 
 togglePassword.addEventListener("click", function () {
     // toggle the type attribute
     const type = password.getAttribute("type") === "password" ? "text" : "password";
     password.setAttribute("type", type);
+
+    // toggle the icon
+    this.classList.toggle("bi-eye");
+});
+
+toggleGeneratedPassword.addEventListener("click", function () {
+    // toggle the type attribute
+    const type = generatedPassword.getAttribute("type") === "password" ? "text" : "password";
+    generatedPassword.setAttribute("type", type);
 
     // toggle the icon
     this.classList.toggle("bi-eye");
@@ -107,6 +117,6 @@ async function generatePassword() {
     }
 
     if (isValid) {
-        document.getElementById("generatedPassword").innerText = await hashPassword(userData);
+        document.getElementById("generatedPassword").value = await hashPassword(userData);
     }
 }
