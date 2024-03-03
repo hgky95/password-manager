@@ -49,9 +49,7 @@ function getRequireChars(requiredRules) {
 
 function getRemainCharsBasedOnRule(byte, rule) {
     let charsOfRule = CHARACTER_SETS[rule];
-    let charPerByte = charsOfRule[byte % charsOfRule.length]
-    console.log("charPerByte: ", charPerByte);
-    return charPerByte;
+    return charsOfRule[byte % charsOfRule.length]
 }
 
 

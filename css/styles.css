@@ -55,3 +55,60 @@ h1 {
     color: red;
     font-size: 12px;
 }
+
+.input-container {
+    display: flex;
+    align-items: center;
+    max-width: 33%;
+    margin: 5px 0 5px 0;
+}
+
+.max-length-label {
+    min-width: 60%;
+    margin-right: 2px;
+}
+
+input.max-length-counter {
+    height: auto;
+    max-width: 20%;
+    text-align: center;
+}
+
+button.max-length-counter-btn {
+    display: block;
+    background-color: #0376c9;
+    color: white;
+    width: 25px;
+    border: none;
+    border-radius: 25px;
+    margin: 0 2px 1px 3px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.master-password-input {
+    display: flex;
+}
+
+.bi.bi-eye-slash {
+    margin-left: -25px;
+    margin-top: 9px;
+    font-size: 1.5em;
+}
+
+.bi.bi-eye-slash.generatedPassword {
+    margin-left: -48px;
+    margin-right: 20px;
+    margin-top: 14px;
+    font-size: 1.5em;
+}
+
+.bi.bi-copy {
+    margin-left: -14px;
+    margin-top: 14px;
+    font-size: 1.2em;
+}
