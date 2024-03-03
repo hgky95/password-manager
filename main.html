@@ -2,6 +2,7 @@
 <html style="width:350px; height:350px;">
 <head>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     <title>Password Generator</title>
 </head>
 <body>
@@ -18,8 +19,12 @@
     </div>
     
     <div class="form-group">
-        <input id="masterPassword" class="place-holder-group" type="password" placeholder="Master Password">
-        <div id="masterPassword-error" class="error-message"></div>
+        <div class="master-password-input">
+            <input id="masterPassword" class="place-holder-group" type="password" placeholder="Master Password">
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+            <div id="masterPassword-error" class="error-message"></div>
+        </div>
+
     </div>
     
     <div class="checkbox-group">

@@ -89,3 +89,13 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.master-password-input {
+    display: flex;
+}
+
+.bi.bi-eye-slash {
+    margin-left: -25px;
+    margin-top: 6px;
+    font-size: 1.5em;
+}

@@ -8,8 +8,20 @@ const DEFAULT_PASSWORD_LENGTH = 8;
 let maxLengthCounter = DEFAULT_PASSWORD_LENGTH;
 document.getElementById("maxLength").value = maxLengthCounter;
 
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("masterPassword");
+
+togglePassword.addEventListener("click", function () {
+    // toggle the type attribute
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+
+    // toggle the icon
+    this.classList.toggle("bi-eye");
+});
+
 function setMaxLength() {
-    maxLengthCounter = document.getElementById("maxLength").value;
+    maxLengthCounter = parseInt(document.getElementById("maxLength").value);
 }
 function increaseMaxLength() {
     if (maxLengthCounter >= 32) {
