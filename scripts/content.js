@@ -109,7 +109,7 @@ async function generatePassword() {
         "username": username,
         "masterPassword": masterPassword,
         //TODO need to update
-        "maxLength": 12,
+        "maxLength": maxLengthCounter,
         "isRequiredUpperCase": true,
         "isRequiredLowerCase": true,
         "isRequiredNumber": true,
