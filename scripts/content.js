@@ -12,6 +12,8 @@ const password = document.getElementById("masterPassword");
 const generatedPassword = document.getElementById("generatedPassword");
 const toggleGeneratedPassword = document.getElementById("toggleGeneratedPassword");
 
+document.getElementById("copyClipboard").addEventListener("click", copyToClipboard);
+
 togglePassword.addEventListener("click", function () {
     // toggle the type attribute
     const type = password.getAttribute("type") === "password" ? "text" : "password";
@@ -61,6 +63,15 @@ function decreaseMaxLength() {
     }
     maxLengthCounter = maxLengthCounter - 1;
     document.getElementById("maxLength").value = maxLengthCounter;
+}
+
+function copyToClipboard() {
+    const textToCopy = document.getElementById("generatedPassword").value;
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        console.log('Copying to clipboard successful!');
+    }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
 }
 
 async function generatePassword() {

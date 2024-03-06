@@ -91,13 +91,17 @@ input::-webkit-inner-spin-button {
 }
 
 .master-password-input {
-    display: flex;
+    display: block;
 }
 
 .bi.bi-eye-slash {
     margin-left: -25px;
     margin-top: 9px;
     font-size: 1.5em;
+}
+
+.generated-password-container {
+    display: flex;
 }
 
 .bi.bi-eye-slash.generatedPassword {
