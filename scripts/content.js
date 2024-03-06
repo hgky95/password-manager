@@ -1,18 +1,33 @@
 const DEFAULT_PASSWORD_LENGTH = 8;
 let maxLengthCounter = DEFAULT_PASSWORD_LENGTH;
+let isRequiredUppercase = document.getElementById("isRequiredUppercase").checked;
+let isRequiredLowercase = document.getElementById("isRequiredLowercase").checked;
+let isRequiredNumber = document.getElementById("isRequiredNumber").checked;
+let isRequiredSpecial = document.getElementById("isRequiredSpecial").checked;
 
 document.getElementById("generateBtn").addEventListener("click", generatePassword);
 document.getElementById("maxLengthIncrementBtn").addEventListener("click", increaseMaxLength);
 document.getElementById("maxLengthDecrementBtn").addEventListener("click", decreaseMaxLength);
 document.getElementById("maxLength").addEventListener("input", setMaxLength);
-document.getElementById("maxLength").value = maxLengthCounter;
+document.getElementById("copyClipboard").addEventListener("click", copyToClipboard);
+document.getElementById("isRequiredUppercase").addEventListener("change", function() {
+    isRequiredUppercase = getCheckboxValues("isRequiredUppercase");
+});
+document.getElementById("isRequiredLowercase").addEventListener("change", function() {
+    isRequiredLowercase = getCheckboxValues("isRequiredLowercase");
+});
+document.getElementById("isRequiredNumber").addEventListener("change", function() {
+    isRequiredNumber = getCheckboxValues("isRequiredNumber");
+});
+document.getElementById("isRequiredSpecial").addEventListener("change", function() {
+    isRequiredSpecial = getCheckboxValues("isRequiredSpecial");
+});
 
+document.getElementById("maxLength").value = maxLengthCounter;
 const togglePassword = document.getElementById("togglePassword");
 const password = document.getElementById("masterPassword");
 const generatedPassword = document.getElementById("generatedPassword");
 const toggleGeneratedPassword = document.getElementById("toggleGeneratedPassword");
-
-document.getElementById("copyClipboard").addEventListener("click", copyToClipboard);
 
 togglePassword.addEventListener("click", function () {
     // toggle the type attribute
@@ -31,6 +46,11 @@ toggleGeneratedPassword.addEventListener("click", function () {
     // toggle the icon
     this.classList.toggle("bi-eye");
 });
+
+function getCheckboxValues(checkboxId) {
+    const checkbox = document.getElementById(checkboxId);
+    return checkbox.checked;
+}
 
 function setMaxLength() {
     maxLengthCounter = parseInt(document.getElementById("maxLength").value);
@@ -121,10 +141,10 @@ async function generatePassword() {
         "masterPassword": masterPassword,
         //TODO need to update
         "maxLength": maxLengthCounter,
-        "isRequiredUpperCase": true,
-        "isRequiredLowerCase": true,
-        "isRequiredNumber": true,
-        "isRequiredSpecial": true,
+        "isRequiredUpperCase": isRequiredUppercase,
+        "isRequiredLowerCase": isRequiredLowercase,
+        "isRequiredNumber": isRequiredNumber,
+        "isRequiredSpecial": isRequiredSpecial,
     }
 
     if (isValid) {
