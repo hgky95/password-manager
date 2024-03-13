@@ -84,6 +84,27 @@ button.max-length-counter-btn {
     margin: 0 2px 1px 3px;
 }
 
+.pw-version-label {
+    min-width: 60%;
+    margin-right: 2px;
+}
+
+input.pw-version-counter {
+    height: auto;
+    max-width: 20%;
+    text-align: center;
+}
+
+button.pw-version-counter-btn {
+    display: block;
+    background-color: #0376c9;
+    color: white;
+    width: 25px;
+    border: none;
+    border-radius: 25px;
+    margin: 0 2px 1px 3px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
