@@ -7,6 +7,7 @@ const MAX_PASSWORD_LENGTH = 32;
 const DOMAIN_REQUIRED_MSG = "Domain is required";
 const USERNAME_REQUIRED_MSG = "Username is required";
 const MASTER_PW_REQUIRED_MSG = "Master Password is required";
+const OPTION_REQUIRED_MSG = "At least one option (uppercase, lowercase, number or symbol) is required";
 const PASSWORD_LENGTH_REQUIRED_MSG = "Password length should be from 4 to 32";
 const PASSWORD_VERSION_REQUIRED_MSG = "Password version should be greater than 0";
 /* HTML ID definition */
@@ -157,42 +158,52 @@ async function generatePassword() {
     const masterPasswordError = document.getElementById("masterPassword-error");
     const maxLengthError = document.getElementById("maxLength-error");
     const pwVersionError = document.getElementById("pwVersion-error");
+    const optionError = document.getElementById("option-error");
 
     domainError.innerText = "";
     usernameError.innerText = "";
     masterPasswordError.innerText = "";
     maxLengthError.innerText = "";
     pwVersionError.innerText = "";
+    optionError.innerText = "";
 
-    let isValid = true;
+    function validateUserInput() {
+        let isValid = true;
 
-    if (!domain.trim()) {
-        domainError.innerText = DOMAIN_REQUIRED_MSG;
-        isValid = false;
+        if (!domain.trim()) {
+            domainError.innerText = DOMAIN_REQUIRED_MSG;
+            isValid = false;
+        }
+
+        if (!username.trim()) {
+            usernameError.innerText = USERNAME_REQUIRED_MSG;
+            isValid = false;
+        }
+
+        if (!masterPassword.trim()) {
+            masterPasswordError.innerText = MASTER_PW_REQUIRED_MSG;
+            isValid = false;
+        }
+
+        if (maxLength < 4 || maxLength > 32) {
+            maxLengthError.innerText = PASSWORD_LENGTH_REQUIRED_MSG;
+            isValid = false;
+        }
+
+        if (pwVersion < 1) {
+            pwVersionError.innerText = PASSWORD_VERSION_REQUIRED_MSG;
+            isValid = false;
+        }
+
+        const userOptions = [isRequiredUppercase, isRequiredLowercase, isRequiredNumber, isRequiredSpecial];
+        if (userOptions.every(option => option === false)) {
+            optionError.innerText = OPTION_REQUIRED_MSG;
+            isValid = false;
+        }
+        return isValid;
     }
 
-    if (!username.trim()) {
-        usernameError.innerText = USERNAME_REQUIRED_MSG;
-        isValid = false;
-    }
-
-    if (!masterPassword.trim()) {
-        masterPasswordError.innerText = MASTER_PW_REQUIRED_MSG;
-        isValid = false;
-    }
-
-    if (maxLength < 4 || maxLength > 32) {
-        maxLengthError.innerText = PASSWORD_LENGTH_REQUIRED_MSG;
-        isValid = false;
-    }
-
-    if (pwVersion < 1) {
-        pwVersionError.innerText = PASSWORD_VERSION_REQUIRED_MSG;
-        isValid = false;
-    }
-
-    //TODO check for at least one uppercase/lowercase/number/special checkbox
-    //TODO length should be > 1
+    let isValid = validateUserInput();
 
     const userData = {
         "domain": domain,
@@ -208,5 +219,7 @@ async function generatePassword() {
 
     if (isValid) {
         document.getElementById(GENERATED_PASSWORD_ID).value = await hashPassword(userData);
+    } else {
+        document.getElementById(GENERATED_PASSWORD_ID).value = "";
     }
 }
