@@ -7,6 +7,7 @@ const DOMAIN_KEY = 'domain';
 const USERNAME_KEY = 'username';
 const MASTER_PASSWORD_KEY = 'masterPassword';
 const MAX_LENGTH_KEY = 'maxLength';
+const PW_VERSION_KEY = 'pwVersion';
 
 const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerChars = 'abcdefghijklmnopqrstuvwxyz';
@@ -59,13 +60,14 @@ async function hashPassword(userData) {
     const username = userData[USERNAME_KEY];
     const masterPassword = userData[MASTER_PASSWORD_KEY];
     const maxLength = userData[MAX_LENGTH_KEY];
+    const pwVersion = userData[PW_VERSION_KEY];
     const isRequiredUpperCase = userData['isRequiredUpperCase'];
     const isRequiredLowerCase = userData['isRequiredLowerCase'];
     const isRequiredNumber = userData['isRequiredNumber'];
     const isRequiredSpecial = userData['isRequiredSpecial'];
     const requiredRules = getRequireRules(isRequiredUpperCase, isRequiredLowerCase, isRequiredNumber, isRequiredSpecial);
 
-    const combinedString = domain + username + masterPassword;
+    const combinedString = domain + username + masterPassword + pwVersion;
     const encoder = new TextEncoder();
     const passwordHash = await crypto.subtle.digest(HASH_ALGORITHM, encoder.encode(combinedString));
     const passwordHashArray = Array.from(new Uint8Array(passwordHash));

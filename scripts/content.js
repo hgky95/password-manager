@@ -189,7 +189,6 @@ async function generatePassword() {
         "domain": domain,
         "username": username,
         "masterPassword": masterPassword,
-        //TODO need to update
         "maxLength": maxLengthCounter,
         "pwVersion": pwVersionCounter,
         "isRequiredUpperCase": isRequiredUppercase,
