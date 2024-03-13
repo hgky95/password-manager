@@ -1,5 +1,15 @@
-const DEFAULT_PASSWORD_LENGTH = 8;
+/* Default value definition */
+const DEFAULT_PASSWORD_LENGTH = 12;
 const DEFAULT_PASSWORD_VERSION = 1;
+const MIN_PASSWORD_LENGTH = 4;
+const MAX_PASSWORD_LENGTH = 32;
+/* MSG definition */
+const DOMAIN_REQUIRED_MSG = "Domain is required";
+const USERNAME_REQUIRED_MSG = "Username is required";
+const MASTER_PW_REQUIRED_MSG = "Master Password is required";
+const PASSWORD_LENGTH_REQUIRED_MSG = "Password length should be from 4 to 32";
+const PASSWORD_VERSION_REQUIRED_MSG = "Password version should be greater than 0";
+/* HTML ID definition */
 const PW_VERSION_ID = "pwVersion";
 const REQUIRED_UPPERCASE_ID = "isRequiredUppercase";
 const REQUIRED_LOWER_ID = "isRequiredLowercase";
@@ -19,7 +29,6 @@ const TOGGLE_GENERATED_PASSWORD_ID = "toggleGeneratedPassword";
 
 let maxLengthCounter = DEFAULT_PASSWORD_LENGTH;
 let pwVersionCounter = DEFAULT_PASSWORD_VERSION;
-
 let isRequiredUppercase = document.getElementById(REQUIRED_UPPERCASE_ID).checked;
 let isRequiredLowercase = document.getElementById(REQUIRED_LOWER_ID).checked;
 let isRequiredNumber = document.getElementById(REQUIRED_NUMBER_ID).checked;
@@ -80,13 +89,13 @@ function setMaxLength() {
     maxLengthCounter = parseInt(document.getElementById(MAX_LENGTH_ID).value);
 }
 function increaseMaxLength() {
-    if (maxLengthCounter >= 32) {
-        maxLengthCounter = 32;
+    if (maxLengthCounter >= MAX_PASSWORD_LENGTH) {
+        maxLengthCounter = MAX_PASSWORD_LENGTH;
         document.getElementById(MAX_LENGTH_ID).value = maxLengthCounter;
         return;
     }
-    if (maxLengthCounter < 4) {
-        maxLengthCounter = 4;
+    if (maxLengthCounter < MIN_PASSWORD_LENGTH) {
+        maxLengthCounter = MIN_PASSWORD_LENGTH;
         document.getElementById(MAX_LENGTH_ID).value = maxLengthCounter;
         return;
     }
@@ -95,13 +104,13 @@ function increaseMaxLength() {
 }
 
 function decreaseMaxLength() {
-    if (maxLengthCounter <= 4) {
-        maxLengthCounter = 4;
+    if (maxLengthCounter <= MIN_PASSWORD_LENGTH) {
+        maxLengthCounter = MIN_PASSWORD_LENGTH;
         document.getElementById(MAX_LENGTH_ID).value = maxLengthCounter;
         return;
     }
-    if (maxLengthCounter > 32) {
-        maxLengthCounter = 32;
+    if (maxLengthCounter > MAX_PASSWORD_LENGTH) {
+        maxLengthCounter = MAX_PASSWORD_LENGTH;
         document.getElementById(MAX_LENGTH_ID).value = maxLengthCounter;
         return;
     }
@@ -158,27 +167,27 @@ async function generatePassword() {
     let isValid = true;
 
     if (!domain.trim()) {
-        domainError.innerText = "Domain is required";
+        domainError.innerText = DOMAIN_REQUIRED_MSG;
         isValid = false;
     }
 
     if (!username.trim()) {
-        usernameError.innerText = "Username is required";
+        usernameError.innerText = USERNAME_REQUIRED_MSG;
         isValid = false;
     }
 
     if (!masterPassword.trim()) {
-        masterPasswordError.innerText = "Master Password is required";
+        masterPasswordError.innerText = MASTER_PW_REQUIRED_MSG;
         isValid = false;
     }
 
     if (maxLength < 4 || maxLength > 32) {
-        maxLengthError.innerText = "Password length should be from 4 to 32";
+        maxLengthError.innerText = PASSWORD_LENGTH_REQUIRED_MSG;
         isValid = false;
     }
 
     if (pwVersion < 1) {
-        pwVersionError.innerText = "Password version should be greater than 0";
+        pwVersionError.innerText = PASSWORD_VERSION_REQUIRED_MSG;
         isValid = false;
     }
 
