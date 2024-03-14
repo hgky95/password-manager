@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
 }
 
 h1 {
@@ -30,7 +30,7 @@ h1 {
 .display-field {
     padding: 2px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    background-color: white;
     width: 92%;
     height: 30px;
     margin: 5px;
@@ -137,4 +137,13 @@ input::-webkit-inner-spin-button {
     margin-left: -14px;
     margin-top: 14px;
     font-size: 1.2em;
+}
+
+#custom-tooltip {
+    display: none;
+    margin-left: 5px;
+    background-color: black;
+    border-radius: 4px;
+    color: white;
+    padding: 3px;
 }

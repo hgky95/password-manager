@@ -140,9 +140,12 @@ function decreasePWVersion() {
 function copyToClipboard() {
     const textToCopy = document.getElementById(GENERATED_PASSWORD_ID).value;
     navigator.clipboard.writeText(textToCopy).then(function() {
-        console.log('Copying to clipboard successful!');
+        document.getElementById("custom-tooltip").style.display = "inline";
+        setTimeout( function() {
+            document.getElementById("custom-tooltip").style.display = "none";
+        }, 1000);
     }, function(err) {
-        console.error('Could not copy text: ', err);
+        console.error('Could not copy password: ', err);
     });
 }
 
