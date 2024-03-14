@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "name": "Stateless Password Manager",
-  "description": "Generate a unique password based on your input. No need to remember every password from now, only the master password is enough. Install now!",
+  "description": "Generate a unique password based on your input. No need to remember every password from now, only the master password is enough.",
   "manifest_version": 3,
   "action": {
     "default_popup": "main.html",
