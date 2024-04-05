@@ -21,6 +21,7 @@ const CHARACTER_SETS = {
     [SPECIAL_KEY]: specialChars,
 };
 
+// Get required rules based on user's options on the UI
 function getRequireRules(isRequiredUpperCase, isRequiredLowerCase, isRequiredNumber, isRequiredSpecial) {
     let rules = [];
 
@@ -39,6 +40,7 @@ function getRequireRules(isRequiredUpperCase, isRequiredLowerCase, isRequiredNum
     return rules;
 }
 
+// Get required characters based on required rules
 function getRequireChars(requiredRules) {
     let allRequiredChars = '';
 
@@ -48,12 +50,13 @@ function getRequireChars(requiredRules) {
     return allRequiredChars;
 }
 
+// Convert byte to character for remaining characters
 function getRemainCharsBasedOnRule(byte, rule) {
     let charsOfRule = CHARACTER_SETS[rule];
     return charsOfRule[byte % charsOfRule.length]
 }
 
-
+// Hash the password based on user's input
 async function hashPassword(userData) {
 
     const domain = userData[DOMAIN_KEY];

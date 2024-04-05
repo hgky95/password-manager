@@ -170,6 +170,7 @@ async function generatePassword() {
     pwVersionError.innerText = "";
     optionError.innerText = "";
 
+    // Validate user input. Return true if all fields are valid. Otherwise, return false
     function validateUserInput() {
         let isValid = true;
 
