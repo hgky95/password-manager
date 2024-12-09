@@ -1,7 +1,7 @@
 {
-  "version": "1.0",
-  "name": "Stateless Password Manager",
-  "description": "Generate a unique password based on your input. No need to remember every password from now, only the master password is enough.",
+  "version": "1.1",
+  "name": "Stateless Password Generator",
+  "description": "Generate unique passwords effortlessly—just remember your master password.",
   "manifest_version": 3,
   "action": {
     "default_popup": "main.html",
